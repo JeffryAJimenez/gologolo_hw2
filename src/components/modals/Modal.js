@@ -65,7 +65,7 @@ class Modal extends React.Component{
         var i = newtext.length;
 
         while(i--){
-            if(newtext.charAt(i) != ' '){
+            if(newtext.charAt(i) !== ' '){
                 this.props.changeTextCallback(this.state.text)
                 this.onClose()
              return

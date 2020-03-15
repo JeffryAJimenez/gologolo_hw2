@@ -145,7 +145,7 @@ class App extends Component {
    * to do the actual work of changing the logo. Note that this function will also
    * then add the built transaction to the stack and execute it.
    */
-  buildChangeLogoTransaction = (oldLogo, logoKey, newText, newTextColor, newFontSize, newBackgroundColor) => {
+  buildChangeLogoTransaction = (oldLogo, logoKey, newText, newTextColor, newFontSize, newBackgroundColor, newBorderColor, newBorderThickness, newBorderRadius) => {
     // THIS WILL BE THE LOGO AFTER THE CHANGE HAPPENS, NOTE WE BUILD
     // AN ENTIRELY NEW LOGO EACH TIME BUT IT SHOULD KEEP THE SAME KEY
     let postEditLogo = {
@@ -153,7 +153,10 @@ class App extends Component {
       text: newText,
       textColor: newTextColor,
       fontSize: newFontSize,
-      backgroundColor: newBackgroundColor
+      backgroundColor: newBackgroundColor,
+      borderColor: newBorderColor,
+      borderThickness: newBorderThickness,
+      borderRadius: newBorderRadius
     };
 
     // NOW BUILD THE TRANSACTION OBJECT
