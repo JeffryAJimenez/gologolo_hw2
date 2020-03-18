@@ -3,6 +3,17 @@ import React, { Component } from 'react'
 import Modal from '../modals/Modal'
 // import { Modal } from 'materialize-css';
 
+const Style = {
+    display: 'flex',
+    alignItems: 'center',
+    flex: 1
+
+}
+
+const Value = {
+    fontSize: 24
+}
+
 class TextEditSidebar extends Component {
     constructor(props) {
         super(props);
@@ -131,13 +142,14 @@ class TextEditSidebar extends Component {
                             </div>
                         
                         </div>
-                        <div className="row">
+                        <div className="row" style={Style}>
                             <div className="col s4">Font Size:</div>
                             <div className="col s8">
                                 <input type="range" min="4" max="144" 
                                     onChange={this.handleFontSizeChange}
                                     value={this.props.logo.fontSize} />
-                            </div>    
+                            </div> 
+                            <div style={Value}>{this.props.logo.fontSize}</div>
                         </div>
 
                         <div className="row">
@@ -151,7 +163,7 @@ class TextEditSidebar extends Component {
 
 
                         <div className="row">
-                        <div className="col s4">Border Color:</div>
+                            <div className="col s4">Border Color:</div>
                             <div className="col s8">
                                 <input type="color"
                                     onChange={this.handleBorderColorChange}
@@ -159,42 +171,46 @@ class TextEditSidebar extends Component {
                             </div>
                         </div>
 
-                        <div className="row">
-                        <div className="col s4">Border Thickness:</div>
+                        <div className="row" style = {Style}>
+                            <div className="col s4">Border Thickness:</div>
                             <div className="col s8">
                                 <input type="range" min="0" max="144"
                                     onChange={this.handleBorderThicknessChange}
                                     value={this.props.logo.borderThickness} />
                             </div>
+                            <div style={Value}>{this.props.logo.borderThickness}</div>
                         </div>
 
-                        <div className="row">
+                        <div className="row" style={Style}>
                             <div className="col s4">Border Radius:</div>
                             <div className="col s8">
                                 <input type="range" min="0" max="144"
                                     onChange={this.handleBorderRadiusChange}
                                     value={this.props.logo.borderRadius} />
                             </div>
+                            <div style={Value}>{this.props.logo.borderRadius}</div>
 
                         </div>
 
-                        <div className="row">
+                        <div className="row" style={Style}>
                             <div className="col s4">Padding:</div>
                             <div className="col s8">
                                 <input type="range" min="0" max="144"
                                     onChange={this.handlePaddingChange}
                                     value={this.props.logo.padding} />
                             </div>
+                            <div style={Value}>{this.props.logo.padding}</div>
 
                         </div>
 
-                        <div className="row">
+                        <div className="row" style={Style}>
                             <div className="col s4">Margin:</div>
                             <div className="col s8">
                                 <input type="range" min="0" max="144"
                                     onChange={this.handleMarginChange}
                                     value={this.props.logo.margin} />
                             </div>
+                            <div style={Value}>{this.props.logo.margin}</div>
 
                         </div>
 
