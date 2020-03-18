@@ -255,7 +255,9 @@ class App extends Component {
     // AND SET THE STATE, WHICH SHOULD FORCE A render
     this.setState({
       logos: nextLogos
-    }, this.afterLogoDeleted);
+    }, this.afterLogoDeleted(nextLogos));    //added logoKey migh break
+
+
   }
 
   // THIS CHANGES THE LOGO
@@ -305,8 +307,12 @@ class App extends Component {
     this.goToEditScreen(this.state.currentLogo);
   }
 
-  afterLogoDeleted = () => {
+  afterLogoDeleted = (newList) => {
     console.log("App afterLogoDeleted logos: " + this.logosToString(this.state.logos));
+
+    let logosString = JSON.stringify(newList);
+    localStorage.setItem("recent_work", logosString);
+
     // FIRST GO HOME
     this.goToHomeScreen();
   }
@@ -363,6 +369,7 @@ class App extends Component {
           canUndo={this.canUndo}                          // TRANSACTION CALLBACK
           canRedo={this.canRedo}
           doCallback = {this.do}                          //do TRANSACTION CALLBACK
+          deleteLogoCallback = {this.deleteLogo}
 
         />;
       default:
