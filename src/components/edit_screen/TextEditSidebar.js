@@ -30,8 +30,36 @@ class TextEditSidebar extends Component {
             borderThickness: this.props.logo.borderThickness,
             borderRadius: this.props.logo.borderRadius,
             padding: this.props.logo.padding,
-            margin: this.props.logo.margin
+            margin: this.props.logo.margin,
         }
+    }
+
+    componentDidMount = () => {
+        document.addEventListener('keydown', this.handleKeyboard )
+
+    }
+
+    componentWillUnmount = () => {
+        document.removeEventListener('keydown', this.handleKeyboard)
+    }
+
+    handleKeyboard = (event) =>{
+
+        console.log("handleKeyboard: " + event.keyCode)
+
+        let undoEnabled = this.props.canUndo();
+        let redoEnabled = this.props.canRedo();
+
+        if(event.keyCode === 90 && event.ctrlKey && undoEnabled) {
+           this.handleUndo()
+           this.forceUpdate()
+        }
+
+        if(event.keyCode === 89 && event.ctrlKey && redoEnabled) {
+            this.handleDo()
+            this.forceUpdate()
+         }
+
     }
 
     handleUndo = () => {
